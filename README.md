@@ -18,7 +18,7 @@ brew install libsodium
 In the root directory build with GCC
 
 ```bash
-gcc -std=c99 -Wall -Wextra password_generator.c main.c -o bin/password_generator $(pkg-config --cflags --libs libsodium)
+gcc -std=c99 -Wall -Wextra password_generator.c main.c -o bin/password_generator.out $(pkg-config --cflags --libs libsodium)
 ```
 
 Run with 
