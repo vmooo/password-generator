@@ -6,11 +6,13 @@ static char get_random_number() {
 
 static char get_random_letter() {
     /* we have 26 letters in English alphabet */
+    uint8_t alphabet_size = 26;
+
     if (randombytes_uniform(1)) {
-        return randombytes_uniform(26) + 65; /* letter A has code 65 */
+        return randombytes_uniform(alphabet_size) + 65; /* letter 'A' has code 65 */
     }
     else {
-        return randombytes_uniform(26) + 97; /* letter a has code 97 */
+        return randombytes_uniform(alphabet_size) + 97; /* letter 'a' has code 97 */
     }
 }
 
