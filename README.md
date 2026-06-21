@@ -1,11 +1,30 @@
 # password-generator
 CLI generates a password of the specified length with the specified characters and calculates the entropy
 
+## External dependencies
+
+- libsodium - 1.0.22 for secure random
+
 ## build
 
-In the root of the repository use
+
+### MacOS
+
+Install libsodium with Homebrew:
 ```bash
-gcc -std=c99 -Wall -Wextra password_generator.c main.c -o bin/password_generator
+brew install libsodium
 ```
 
-The executable file will be located in `/bin` directory
+In the root directory build with GCC
+
+```bash
+gcc -std=c99 -Wall -Wextra password_generator.c main.c -o bin/password_generator $(pkg-config --cflags --libs libsodium)
+```
+
+Run with 
+```bash
+./bin/password_generator
+```
+
+### Linux
+
