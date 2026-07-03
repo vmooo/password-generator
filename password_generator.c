@@ -16,8 +16,34 @@ static char get_random_letter() {
     }
 }
 
+
+/******************************
+* Special symbols codes:      *
+* 32-47                       *
+* 58-64                       *
+* 91-96                       *
+* 123-126                     *
+*******************************/
+enum SpecialIntervalSizes {
+	SPECIAL_INTERVAL_1 = 16,
+	SPECIAL_INTERVAL_2 = 7,
+	SPECIAL_INTERVAL_3 = 6,
+	SPECIAL_INTERVAL_4 = 4
+};
+
 static char get_random_special() {
-    return '*';
+    uint8_t interval_number = randombytes_uniform(4);
+
+	switch(interval_number){
+		case 0:
+			return randombytes_uniform(SPECIAL_INTERVAL_1) + 32;
+		case 1:
+			return randombytes_uniform(SPECIAL_INTERVAL_2) + 58;
+        case 2:
+			return randombytes_uniform(SPECIAL_INTERVAL_3) + 91;
+		default:
+			return randombytes_uniform(SPECIAL_INTERVAL_4) + 123;
+	}
 }
 
 char* generate_password(size_t length, bool include_numbers, bool include_letters, bool include_special) {
