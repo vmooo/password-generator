@@ -23,7 +23,7 @@ gcc -std=c99 -Wall -Wextra password_generator.c main.c -o bin/password_generator
 
 Run with 
 ```bash
-./bin/password_generator
+./bin/password_generator.out
 ```
 
 ### Linux

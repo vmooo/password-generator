@@ -14,4 +14,6 @@
  *****************************************/
 char* generate_password(size_t lenght, bool include_numbers, bool include_letters, bool include_special);
 
+float calculate_entropy(int password_length, bool numbers_included, bool letters_included, bool special_included);
+
 #endif /* ifndef PASSWORD_GENERATOR */

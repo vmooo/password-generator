@@ -1,4 +1,5 @@
 #include "password_generator.h"
+#include <math.h>
 
 static char get_random_number() {
     return randombytes_uniform(10) + 48; /* The numbers in the ASCII table start with code 48 */
@@ -72,6 +73,24 @@ char* generate_password(size_t length, bool include_numbers, bool include_letter
     }
 
     return password;
+}
+
+
+
+float calculate_entropy(int password_length, bool numbers_included, bool letters_included, bool special_included) {
+	int character_pool = 0;
+
+	if(numbers_included) {
+		character_pool += 10;
+	}
+	if(letters_included) {
+		character_pool += 52;
+	}
+	if(special_included) {
+		character_pool += 32;
+	}
+
+	return (float)password_length * log2f(character_pool);
 }
 
     
